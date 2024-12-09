@@ -14,6 +14,7 @@ app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
 
+//добавление таска
 app.post('/tasks', (req, res) => {
   const { text } = req.body;
   if (text) {
@@ -25,6 +26,7 @@ app.post('/tasks', (req, res) => {
   }
 });
 
+//выполнение таска
 app.put('/tasks/:id', (req, res) => {
   const { id } = req.params;
   const { isDone } = req.body;
@@ -37,6 +39,7 @@ app.put('/tasks/:id', (req, res) => {
   }
 });
 
+//удаление таска
 app.delete('/tasks/:id', (req, res) => {
   const { id } = req.params;
   const index = tasks.findIndex(t => t.id === parseInt(id));
